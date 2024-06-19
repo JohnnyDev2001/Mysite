@@ -1,0 +1,10 @@
+#Arquivo de configurações
+Options -indexes
+
+RewriteEngine On
+RewriteBase /Mysite
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-l
+
+RewriteRule ^(.*)$ index.php/$1
