@@ -6,6 +6,8 @@ require 'vendor/autoload.php';
 
 //require 'router.php';
 
-use src\Core\Conection;
+use src\Models\PostModel;
 
-$con = Conection::getInstancia();
+$sql = (new PostModel())->read();
+
+var_dump($sql);
