@@ -7,8 +7,10 @@ router::setDefaultNamespace('src\Controllers');
 
 
 try{
-router::get('/Mysite', 'SiteController@index');
+router::get('Mysite', 'SiteController@index');
 router::get('Mysite/sobre', 'SiteController@sobre');
+router::get('Mysite/post/{id}', 'SiteController@post');
+
 
 router::get('/Mysite'.'/404', 'NotfoundController@index');
 router::start();

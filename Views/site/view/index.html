@@ -4,7 +4,20 @@
 
 <div class="container py-5">
 
-    <h3>Index</h3>
+    <div class="row">
+    {% for post in posts %}
+    <div class="col-md-3">
+        <div class="card m-b2">
+            <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text fs-6 fw-lighter">Nº : {{ post.id }}</p>
+            <p class="card-text fw-medium">{{ post.text }}</p>
+            <a href="http://localhost/Mysite/post/{{post.id}}" class="btn btn-success">Vejá mais...</a>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    </div>
 
 </div>
 

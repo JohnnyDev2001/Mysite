@@ -4,12 +4,12 @@ namespace src\Models;
 
 use src\Core\Conection;
 
-Class PostModel{
+Class CategorModel{
 
     public function search(): array
     {
 
-        $query = "SELECT * FROM posts";
+        $query = "SELECT * FROM categories";
         $sql = Conection::getInstancia()->query($query);
         $res = $sql->fetchAll();
 
@@ -19,7 +19,7 @@ Class PostModel{
     public function searchId(int $id)
     {
 
-        $query = "SELECT * FROM posts WHERE id = {$id}";
+        $query = "SELECT * FROM categories WHERE id = {$id}";
         $sql = Conection::getInstancia()->query($query);
 
         $res = $sql->fetch();

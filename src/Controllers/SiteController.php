@@ -3,6 +3,8 @@
 namespace src\Controllers;
 
 use src\Core\Controller;
+use src\Models\PostModel;
+use src\Core\Helpers;
 
 class SiteController extends Controller
 {
@@ -14,8 +16,23 @@ class SiteController extends Controller
 
     public function index()
     {
-        print $this->template->renderizar('index.html', [
+        $posts = (new PostModel())->search();
 
+        print $this->template->renderizar('index.html', [
+            'posts'=> $posts
+        ]);
+    }
+    
+    public function post(int $id): void
+    {
+        $post = (new PostModel)->searchId($id);
+
+        if(!$post){
+            Helpers::redirecionar('404');
+        }
+
+        print $this->template->renderizar('post.html', [
+            'post' => $post
         ]);
     }
 
@@ -25,4 +42,5 @@ class SiteController extends Controller
             "pagina" => "Sobre"
         ]);
     }
+
 }
