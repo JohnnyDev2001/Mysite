@@ -6,18 +6,20 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 px-5">
-          <li><a href="#" class="nav-link px-2 text-secondary">Inicio</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Sobre</a></li>
+          <li><a href="http://localhost/Mysite/" class="nav-link px-2 text-secondary">Inicio</a></li>
+          <li><a href="http://localhost/Mysite/sobre" class="nav-link px-2 text-white">Sobre</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+        <form data-url-search="http://localhost/Mysite/search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" id="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
         </form>
-
+        
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2">Login</button>
           <button type="button" class="btn btn-warning">Registrar-se</button>
         </div>
       </div>
     </div>
+
+    <div class='my-3' id="searchRes"></div>
   </header>

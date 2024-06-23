@@ -16,6 +16,17 @@ Class PostModel{
         return $res;
     }
 
+    public function searchBar($dado): array
+    {
+
+        $query = "SELECT * FROM posts WHERE title LIKE '%{$dado}%'";
+        $sql = Conection::getInstancia()->query($query);
+        $res = $sql->fetchAll();
+
+        return $res;
+    }
+
+
     public function searchId(int $id)
     {
 

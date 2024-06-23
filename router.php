@@ -10,7 +10,7 @@ try{
 router::get('Mysite', 'SiteController@index');
 router::get('Mysite/sobre', 'SiteController@sobre');
 router::get('Mysite/post/{id}', 'SiteController@post');
-
+router::post('Mysite/search', 'SiteController@search');
 
 router::get('/Mysite'.'/404', 'NotfoundController@index');
 router::start();
