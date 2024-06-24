@@ -7,14 +7,23 @@ router::setDefaultNamespace('src\Controllers');
 
 
 try{
-router::get('Mysite', 'SiteController@index');
-router::get('Mysite/sobre', 'SiteController@sobre');
-router::get('Mysite/post/{id}', 'SiteController@post');
-router::post('Mysite/search', 'SiteController@search');
+router::get(BASE_URL, 'SiteController@index');
+router::get(BASE_URL.'sobre', 'SiteController@sobre');
+router::get(BASE_URL.'post/{id}', 'SiteController@post');
+router::post(BASE_URL.'search', 'SiteController@search');
 
-router::get('/Mysite'.'/404', 'NotfoundController@index');
+router::get(BASE_URL.'/404', 'NotfoundController@index');
+
+router::group(['namespace' => 'Admin'], function () {
+    router::get(BASE_URL.'admin/dashbord', 'AdminDashbord@index');
+});
+
 router::start();
 
 }catch(Pecee\SimpleRouter\Exceptions\NotFoundHttpException $e){
-    Helpers::redirecionar('404');
+    if(Helpers::localhost()){
+        $e->getMessage();
+    }else{
+        Helpers::redirecionar('404');
+    }
 }
